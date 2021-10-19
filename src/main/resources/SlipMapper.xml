@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.customers.mapper.mybatis.ISlipMapper">
+    <resultMap id="slipMapping" type="com.example.customers.entity.Slip">
+        <id property="id" column="id" />
+        <result property="slipNumber" column="slip_number" />
+        <result property="tonnage" column="tonnage" />
+        <result property="createdAt" column="created_at" />
+        <result property="customerId" column="customer_id" />
+        <result property="customerName" column="customer_name" />
+        <result property="shiftId" column="shift_id" />
+    </resultMap>
+
+    <select id="getAll" resultMap="slipMapping">
+        SELECT * FROM slips
+    </select>
+
+    <select id="getCount" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM slips
+    </select>
+</mapper>
